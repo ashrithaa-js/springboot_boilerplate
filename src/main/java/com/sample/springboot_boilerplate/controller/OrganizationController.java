@@ -1,5 +1,6 @@
 package com.sample.springboot_boilerplate.controller;
 
+import com.sample.springboot_boilerplate.dto.EmployeeDTO;
 import com.sample.springboot_boilerplate.dto.OrganizationDTO;
 import com.sample.springboot_boilerplate.dto.ProductDTO;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,7 +34,12 @@ public class OrganizationController {
         List<ProductDTO> products = organizationService.getProductList(id);
         return ResponseEntity.ok(products);
     }
-
+    
+    @GetMapping("/{id}/employee/list")
+    public ResponseEntity<List<EmployeeDTO>> getEmployeeList(@PathVariable("id") Integer id) {
+        List<EmployeeDTO> employees = organizationService.getEmployeeList(id);
+        return ResponseEntity.ok(employees);
+    }
 
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getOrganizationById(@PathVariable Integer id) {
@@ -45,4 +51,6 @@ public class OrganizationController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+
+
 }
