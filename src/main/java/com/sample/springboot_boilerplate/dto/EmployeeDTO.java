@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
 public class EmployeeDTO {
     private Integer id;
-    private String name; 
+    private String name;
+    private String emp_email;
+    private String mgr_email;
 }
